@@ -1,0 +1,43 @@
+<div class="w-full py-[12px] px-[16px] bg-[#f2f3f4]">
+    <div class=" w-[1100px] mx-auto flex items-center space-x-2">
+        <h1 class="">Trang chủ</h1> <i class="fa-solid fa-angle-right"></i>
+        <div>{{product?.name}}</div>
+    </div>
+</div>
+<div>
+    <div class="w-[1100px] mx-auto">
+        <div class="left-col w-[830px] p-[15px]">
+            <div class="flex">
+                <div class="w-[240px]">
+                    <img class="w-full" src="{{product.images[0].large_url}}" alt="">
+                    <div class="text-center pt-[20px]">
+                        <div><i class="fa-regular fa-heart"></i></div>
+                        <div>Đánh giá sách</div>
+                        <div>{{product?.rating_average}}/5</div>
+                    </div>
+
+                </div>
+                <div class="pl-[45px]">
+                    <h1 class="text-[20px]">{{product?.name}}</h1>
+                    <p>Tác giả: <a href="">{{product?.authors[0].name}}</a></p>
+                    <p>Thể loại: <a href="">{{product?.categories.name}}</a></p>
+
+                    <app-quantity-button></app-quantity-button>
+                    <!-- <p>Thông tin chi tiết:</p>
+                    <table class="mt-5 text-gray-500">
+                        <tr class="" *ngFor="let info of product?.specifications[0].attributes">
+                            <td>{{info.name}}</td>
+                            <td>{{info.value}}</td>
+                        </tr>
+                    </table> -->
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="right-col w-[270px]">
+
+        </div>
+    </div>
+</div>

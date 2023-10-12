@@ -1,0 +1,23 @@
+<div class="w-[80%] max-w-[1100px] mx-auto">
+    <div class="mb-5">
+        <app-slide></app-slide>
+    </div>
+    <div class="banner mb-5">
+        <img class="w-full" src="https://ebook.waka.vn/themes/desktop/reactjs//images/bannerButton.jpg" alt="">
+    </div>
+    <div class="">
+        <app-list-new-product [data]="reversedProducts"></app-list-new-product>
+    </div>
+    <div>
+        <app-list-hot-product [data]="products"></app-list-hot-product>
+    </div>
+    <div class="mb-10">
+        <img src="../../../assets/screenshot_1695879360.png" alt="">
+    </div>
+    <div class="">
+        <app-list-top-product [data]="topReadProducts"></app-list-top-product>
+    </div>
+</div>
+<div class="bg-[#1ba085] mt-10 h-[140px]">
+    <app-end-banner></app-end-banner>
+</div>

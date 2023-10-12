@@ -1,0 +1,11 @@
+<div class="relative w-[1070px] mx-auto px-[15px] py-[10px]">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of slides" class=" slider flex items-center">
+            <div class="text-white w-[840px] text-center mx-auto my-4 space-y-3">
+                <h1 class="uppercase text-[16px]">{{slide.title}}</h1>
+                <p>{{slide.content}}</p>
+            </div>
+
+        </div>
+    </ngx-slick-carousel>
+</div>
