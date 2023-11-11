@@ -9,14 +9,14 @@ import { ProductService } from 'src/app/service/product.service';
 export class HomeComponent {
   products: any[] = [];
   reversedProducts: any[] = [];
-  topReadProducts: any[] = [];
+  topSoldProducts: any[] = [];
+  topMonth: any[] = []
   constructor(private productSevice: ProductService) {
     this.productSevice.getAllProduct().subscribe(data => {
       this.products = data;
+      this.topMonth = this.products.sort((a, b) => b.rating_average.totalRating - a.rating_average.totalRating).slice(0, 10)
       this.reversedProducts = this.products.slice(-10).reverse();
-      this.topReadProducts = this.products.slice(7, 19).reverse();
-      console.log(this.reversedProducts);
-
+      this.topSoldProducts = this.products.sort((a, b) => b.quantity_sold.value - a.quantity_sold.value).slice(0, 12);
     }, error => console.log(error))
   }
 

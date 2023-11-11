@@ -20,6 +20,41 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { EndBannerComponent } from './pages/home/component/end-banner/end-banner.component';
 import { QuantityButtonComponent } from './component/quantity-button/quantity-button.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManageInfoCustomerComponent } from './pages/manage-info-customer/manage-info-customer.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { vi_VN } from 'ng-zorro-antd/i18n';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { FormInfoComponent } from './pages/manage-info-customer/component/form-info/form-info.component';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { SidebarMenuComponent } from './component/sidebar-menu/sidebar-menu.component';
+import { ChangePasswordComponent } from './pages/manage-info-customer/component/change-password/change-password.component';
+import { ManageOrderComponent } from './pages/manage-info-customer/component/manage-order/manage-order.component';
+import { registerLocaleData } from '@angular/common';
+import localeVi from '@angular/common/locales/vi';
+import { SearchComponent } from './pages/search/search.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+
+
+
+registerLocaleData(localeVi);
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,15 +73,55 @@ import { QuantityButtonComponent } from './component/quantity-button/quantity-bu
     ClientComponent,
     EndBannerComponent,
     QuantityButtonComponent,
+    LoginComponent,
+    RegisterComponent,
+    ManageInfoCustomerComponent,
+    FormInfoComponent,
+    SidebarMenuComponent,
+    ChangePasswordComponent,
+    ManageOrderComponent,
+    SearchComponent,
+    ProductsComponent,
+
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: 'detail/:id',
+        component: DetailComponent,
+        data: { scrollPosition: 'top' } // Thiết lập cuộn lên đầu trang
+      },
+    ], {
+      scrollPositionRestoration: 'enabled', // Cho phép cuộn trang
+    }),
     SlickCarouselModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NzFormModule,
+    NzInputModule,
+    NzRadioModule,
+    NzDatePickerModule,
+    NzDropDownModule,
+    NzTableModule,
+    NzButtonModule,
+    NzIconModule,
+    NzModalModule,
+    NzMessageModule,
+    NzPopconfirmModule,
+    NzRateModule,
+    NzCommentModule,
+    NzAvatarModule,
+    NzPaginationModule,
+    NzPopoverModule
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: vi_VN }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

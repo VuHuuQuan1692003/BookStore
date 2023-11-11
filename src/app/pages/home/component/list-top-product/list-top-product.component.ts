@@ -7,5 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ListTopProductComponent {
   @Input() data: any
-
+  VND = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  });
 }

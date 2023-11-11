@@ -1,33 +1,24 @@
 <div>
     <div class="mb-10">
         <h3 class="text-[#3a4752] text-[20px] font-medium">
-            Đọc nhiều nhất
+            Mua nhiều nhất
         </h3>
     </div>
     <div class="w-[1100px] grid grid-cols-4 gap-x-[20px] gap-y-[50px]">
         <div *ngFor="let list of data" class="w-260px border rounded-md shadow-md">
             <div class="flex w-full pl-[10px]  relative">
                 <div class="w-[120px] ">
-                    <img class="absolute bottom-0 w-[120px] h-[176px] border" src={{list.images[0].small_url}} alt="">
+                    <img width="176" class="absolute bottom-0 w-[120px] h-[176px] border border-solid border-gray-200"
+                        src={{list.images[0].small_url}} alt="">
                 </div>
                 <div class="w-[120px] px-[10px] space-y-1">
-                    <h3 class="text-[13px] truncate-2-lines">{{list.name}}</h3>
-                    <div class="text-[11px] text-[#888]">Trần Thị Khánh An</div>
-                    <div class="flex text-[11px] text-yellow-400">
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <div class="text-[11px] text-[#888]">
-                        22 vote
-                    </div>
-                    <p class="truncate-2-lines text-[11px] text-[#888] leading-6">
-                        Cuốn sách này nằm trong dự án hợp tác phát hành ebook/(audio) (độc quyền) giữa Waka và tác giả
-                        Khánh.
-                        An do vậy không nằm trong quyền lợi gói Hội viên.
-
+                    <h3 class="text-[13px] truncate-2-lines"><a [routerLink]="['/detail',list.id]">{{list.name}}</a>
+                    </h3>
+                    <div class="text-[11px] text-[#888] truncate">{{list.authors[0].name}}</div>
+                    <nz-rate class="text-sm" [ngModel]="list?.rating_average.value" nzAllowHalf
+                        disabled="true"></nz-rate>
+                    <p class="text-[13px] text-red-500 font-medium truncate">{{VND.format(list.sale_price)}}</p>
+                    <p [innerHTML]="list.short_description" class="truncate-2-lines text-[11px] text-[#888] leading-4">
                     </p>
                 </div>
             </div>

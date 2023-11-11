@@ -12,7 +12,10 @@ export class SliceItemProductComponent {
   slideConfig = {
     slidesToShow: 6,
     slidesToScroll: 1,
-    arrows: "false"
+    arrows: "false",
+    draggable: false,
+    "autoplay": true,
+    "autoplaySpeed": 3000,
   };
 
 

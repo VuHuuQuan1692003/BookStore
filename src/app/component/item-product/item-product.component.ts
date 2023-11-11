@@ -8,4 +8,8 @@ import { Component, Input, Output } from '@angular/core';
 export class ItemProductComponent {
   @Input() product: any;
   @Input() index: any;
+  VND = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  });
 }

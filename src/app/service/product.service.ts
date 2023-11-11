@@ -15,4 +15,10 @@ export class ProductService {
   getOneProduct(id: any): Observable<any[]> {
     return this.http.get<any[]>(`http://localhost:3000/products/${id}`)
   }
+  searchProduct(keyword: any): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:3000/products?q=${keyword}`)
+  }
+  updateProduct(id: any, data: any) {
+    return this.http.put(`http://localhost:3000/products/${id}`, data)
+  }
 }
