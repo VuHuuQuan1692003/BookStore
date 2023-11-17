@@ -1,4 +1,4 @@
-<header class="mt-2 py-2 shadow w-full">
+<header class="mt-2 py-2 hidden sm:hidden md:hidden lg:hidden shadow w-full xl:block">
     <div class="top-header flex justify-between w-[80%] max-w-[1100px] mx-auto items-center">
         <a href="/"><img src="https://ebook.waka.vn/themes/desktop/images/logo-waka.png?v=1" alt=""></a>
 
@@ -62,5 +62,135 @@
         <div>Miễn phí Hot</div>
         <div>Tuyển tập</div>
         <div>Khuyên đọc</div>
+    </div>
+</header>
+<header class="block md:block lg:hidden">
+    <div class="flex z-10 items-center flex-1 justify-between m-3">
+        <span (click)="openMenu()" nz-icon nzType="menu" nzTheme="outline"
+            class="mx-3 text-[20px] text-gray-600"></span>
+        <form class="flex items-center relative w-3/4  bg-white">
+            <span nz-icon nzType="search" nzTheme="outline" class="absolute mx-3" (click)="search()"></span>
+            <input [(ngModel)]="searchInput" name="search" type="text" placeholder="Nhập tên sách, tác giả,..."
+                class="h-[30px] pl-[30px] w-full outline-none border border-solid border-gray-300 rounded-[15px]">
+        </form>
+        <div class="mx-3">
+            <button class="bg-yellow-500 px-[12px] h-[30px] text-white rounded-[50px] text-[14px] my-[2px]">
+                <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </button>
+
+        </div>
+    </div>
+    <div *ngIf="menuSideBar"
+        class="flex fixed  top-0 z-30  h-screen w-full sm:w-1/2 flex-col justify-between border-e bg-white">
+        <div class="px-4 py-6 relative">
+            <span nz-icon nzType="close" nzTheme="outline" class="absolute top-4 right-4 text-[20px]"
+                (click)="closeMenu()"></span>
+            <span class="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
+                <a href="/"><img class="50%" src="https://ebook.waka.vn/themes/desktop/images/logo-waka.png?v=1"
+                        alt=""></a>
+            </span>
+
+            <ul class="mt-6 space-y-1">
+                <li>
+                    <a routerLink="/" (click)="closeMenu()"
+                        class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+                        Trang chủ
+                    </a>
+                </li>
+
+                <li>
+                    <details class="group [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                            <span class="text-sm font-medium">Danh mục</span>
+
+                            <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <ul class="mt-2 space-y-1 px-4">
+                            <ul nz-menu *ngFor="let category of categories">
+                                <li nz-menu-item><a (click)="closeMenu()"
+                                        [routerLink]="['category',category.name]">{{category.name}}</a></li>
+
+                            </ul>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <a href=""
+                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                        Bảng xếp hạng
+                    </a>
+                </li>
+
+                <li>
+                    <a href=""
+                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                        Tuyển tập
+                    </a>
+                </li>
+
+                <li>
+                    <details class="group [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                            <span class="text-sm font-medium"> Account </span>
+
+                            <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <ul class="mt-2 space-y-1 px-4">
+
+                            <li *ngIf="!accessToken">
+                                <a href="/login"
+                                    class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                            <li *ngIf="!accessToken">
+                                <a href="/register"
+                                    class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                    Đăng ký
+                                </a>
+                            </li>
+
+                            <li *ngIf="accessToken && id">
+                                <a href="customer"
+                                    class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                    Quản lý
+                                </a>
+                            </li>
+
+                            <li *ngIf="accessToken && id" (click)="logOut()">
+
+                                <button
+                                    class="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700">
+                                    Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div *ngIf="menuSideBar" (click)="closeMenu()"
+        class="fixed top-0 left-0 bottom-0 right-0 z-20 bg-black opacity-[0.5]">
     </div>
 </header>

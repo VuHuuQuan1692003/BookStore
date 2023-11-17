@@ -22,8 +22,6 @@ export class SearchComponent {
         console.log(this.products);
 
       })
-      // In giá trị từ khóa 'q'
-      // Tiếp tục xử lý với giá trị từ khóa 'q'
     });
   }
 }

@@ -16,6 +16,7 @@ export class HeaderComponent {
   subscription: Subscription | undefined;
   searchInput!: string;
   categories: any[] = []
+  menuSideBar: boolean = false
   constructor(
     private userSevice: UserService,
     private router: Router,
@@ -56,6 +57,13 @@ export class HeaderComponent {
       const searchQuery = encodeURIComponent(this.searchInput);
       this.router.navigate(['/search'], { queryParams: { q: searchQuery } });
     }
+
+  }
+  openMenu() {
+    this.menuSideBar = true
+  }
+  closeMenu() {
+    this.menuSideBar = false
 
   }
 }

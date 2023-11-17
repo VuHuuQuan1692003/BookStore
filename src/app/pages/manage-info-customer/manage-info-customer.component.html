@@ -1,14 +1,29 @@
-<div class="w-[1070px] mx-auto flex">
-    <div class="w-1/5 p-5 border-r">
-        <app-sidebar-menu></app-sidebar-menu>
+<div class="w-full md:w-full lg:w-[1070px]  mx-auto md:px-[80px] block md:flex lg:flex">
+    <div class="block md:hidden lg:hidden w-full p-5">
+        <button class="border border-black w-full" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+            <a class="">Menu</a>
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item>
+                    <a class="w-full" href="customer/information">Quản lý thông tin</a>
+                </li>
+                <li nz-menu-item>
+                    <a class="w-full" href="customer/change-password">Đổi mật khẩu</a>
+                </li>
+                <li nz-menu-item>
+                    <a class="w-full" href="customer/manage-order">Quản lý đơn hàng</a>
+                </li>
 
+            </ul>
+        </nz-dropdown-menu>
     </div>
-    <div class="w-4/5 p-5">
-
-
+    <div class=" hidden md:block lg:w-1/5 p-5 border-r">
+        <app-sidebar-menu></app-sidebar-menu>
+    </div>
+    <div class="mx-auto md:mx-0 lg:mx-0 lg:w-4/5 p-5">
         <div>
             <router-outlet></router-outlet>
         </div>
-
     </div>
 </div>

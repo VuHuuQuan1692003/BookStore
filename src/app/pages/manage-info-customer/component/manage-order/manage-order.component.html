@@ -4,8 +4,8 @@
         <tr>
             <th>Mã đơn hàng</th>
             <th>Trạng thái</th>
-            <th>Sản phẩm</th>
-            <th>Tổng tiền</th>
+            <th class="hidden md:hidden lg:block">Sản phẩm</th>
+            <th class="hidden md:hidden lg:block">Tổng tiền</th>
             <th>Hành động</th>
 
         </tr>
@@ -25,14 +25,14 @@
                     </a>
                 </div>
             </td>
-            <td>
-                <div class="space-x-1 flex" *ngFor="let product of  data.orderProduct ">
+            <td class="hidden md:hidden lg:block">
+                <div class="space-x-1 flex " *ngFor="let product of  data.orderProduct ">
                     <p>{{product.quantity}}</p>
                     x
                     <p>{{product.nameProduct}}</p>
                 </div>
             </td>
-            <td>{{ VND.format(data.orderPrice) }}</td>
+            <td class="hidden md:hidden lg:block">{{ VND.format(data.orderPrice) }}</td>
 
             <td class="">
 
@@ -57,7 +57,14 @@
                             <p>Ngày:</p>
                             <p>{{ data.date }}</p>
                         </div>
-
+                        <div class="space-x-2">
+                            <p>Sản phẩm:</p>
+                            <div class="space-x-1 flex" *ngFor="let product of  data.orderProduct ">
+                                <p>{{product.quantity}}</p>
+                                x
+                                <p>{{product.nameProduct}}</p>
+                            </div>
+                        </div>
                         <div class="flex space-x-2">
                             <p>Địa chỉ:</p>
                             <p>{{ data.address }}</p>

@@ -5,7 +5,7 @@
       "userId": 2,
       "userName": "Vũ Hữu Quân",
       "rating": 3.5,
-      "comment": "như loz",
+      "comment": "bình thường thôi",
       "createdAt": "2023-11-10",
       "id": 1
     },
@@ -23,7 +23,7 @@
       "userId": 2,
       "userName": "Vũ Hữu Quân",
       "rating": 3.5,
-      "comment": "như bìu",
+      "comment": "khá ổn",
       "createdAt": "2023-11-10",
       "id": 3
     },
@@ -32,7 +32,7 @@
       "userId": 2,
       "userName": "Vũ Hữu Quân",
       "rating": 4,
-      "comment": "hay em êi",
+      "comment": "hay bạn êi",
       "createdAt": "2023-11-10",
       "id": 4
     },
@@ -41,7 +41,7 @@
       "userId": 2,
       "userName": "Vũ Hữu Quân",
       "rating": 3,
-      "comment": "như loz",
+      "comment": "được đấy",
       "createdAt": "2023-11-10",
       "id": 5
     },
@@ -292,15 +292,20 @@
         }
       ],
       "orderPrice": 260000,
-      "orderState": "Đã hủy",
+      "orderState": "Đang xử lý",
       "id": 7
-    }
-  ],
-  "carts": [
+    },
     {
-      "id": 1,
       "userId": "1",
-      "items": [
+      "email": "quan123@gmai.com",
+      "firstname": "Quân",
+      "lastname": "Vũ Hữu",
+      "phoneNumber": "0386311627",
+      "address": "Ngõ 61, Tổ 11, Yên Nghĩa, Hà Đông, Hà Nội",
+      "note": "",
+      "date": "2023-11-17",
+      "paymentMethod": "Direct Payment",
+      "orderProduct": [
         {
           "id": 15,
           "image": "https://salt.tikicdn.com/cache/200x280/ts/product/b5/42/19/4e614bc580b3de9c8b0aca634a22f705.jpg",
@@ -339,10 +344,20 @@
           "authors": "Instant Research Institude",
           "nameProduct": "Sách: Cho Đi Và Nhận Lại - Nghệ Thuật Xây Dựng Mối Quan Hệ Nơi Công Sở ",
           "price": 52000,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "totalPrice": 570150
+      "orderPrice": 622150,
+      "orderState": "Đang xử lý",
+      "id": 8
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": "1",
+      "items": [],
+      "totalPrice": 0
     },
     {
       "id": 2,

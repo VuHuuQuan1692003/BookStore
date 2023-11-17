@@ -30,6 +30,9 @@ export class UserService {
   getOne(id: any): Observable<any> {
     return this.http.get<any>(`http://localhost:3000/users/${id}`)
   }
+  getAll(){
+    return this.http.get<any>(`http://localhost:3000/users`)
+  }
   update(id: any, user: any) {
     return this.http.put(`http://localhost:3000/users/${id}`, user)
   }

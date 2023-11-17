@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class LoginComponent {
   constructor(
     private UserService: UserService,
+    private message: NzMessageService,
   ) { }
   submited = false
   errer = false
@@ -33,8 +35,11 @@ export class LoginComponent {
         email: this.email.value,
         password: this.password.value
       }
+      this.message.info('Đăng nhập thành công')
+
       this.UserService.signin(data)
       console.log('Login submitted:', this.signinform.value);
+
 
     } else {
       this.submited = true

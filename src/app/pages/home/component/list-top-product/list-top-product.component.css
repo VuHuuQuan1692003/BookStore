@@ -4,14 +4,3 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
-
-.ant-rate,
-
-.ant-rate-star-half,
-.ant-rate-star-full {
-    font-size: 10px !important;
-}
-
-.ant-rate-star:not(:last-child) {
-    margin-right: 0;
-}

@@ -1,16 +1,17 @@
 <div class="w-full py-[12px] px-[16px] bg-[#f2f3f4]">
-    <div class=" w-[1100px] mx-auto flex items-center space-x-2">
-        <h1 class=""><a routerLink="/">Trang chủ</a></h1> <i class="fa-solid fa-angle-right"></i>
-        <h1 class="">{{product?.categories.name}}</h1> <i class="fa-solid fa-angle-right"></i>
-        <div>{{product?.name}}</div>
+    <div class=" w-full lg:w-[1100px] mx-auto flex items-center space-x-2">
+        <h1 class="w-[75px] lg:w-auto md:w-auto"><a routerLink="/">Trang chủ</a></h1> <i
+            class="fa-solid fa-angle-right"></i>
+        <h1 class=" truncate">{{product?.categories.name}}</h1> <i class="fa-solid fa-angle-right"></i>
+        <div class="truncate">{{product?.name}}</div>
     </div>
 </div>
 <div>
-    <div class="w-[1100px] mx-auto">
-        <div class="left-col w-[830px] p-[15px]">
-            <div class="flex">
-                <div class="w-[240px]">
-                    <img class="w-[240px] h-[300px]" src="{{product?.images[0].large_url}}" alt="">
+    <div class=" w-full lg:w-[1100px] mx-auto">
+        <div class="left-col w-full md:w-[830px] lg:w-[830px] p-[15px]">
+            <div class=" block md:flex lg:flex">
+                <div class="text-center md:text-left md:w-[240px] lg:w-[240px]">
+                    <img class="w-[240px] h-[300px] mx-auto" src="{{product?.images[0].large_url}}" alt="">
                     <div class="text-center pt-[20px]">
                         <div><i class="fa-regular fa-heart"></i></div>
                         <div>Đánh giá sách</div>
@@ -18,7 +19,7 @@
                     </div>
 
                 </div>
-                <div class="pl-[45px]">
+                <div class="md:pl-[45px] lg:pl-[45px]">
                     <h1 class="text-[20px]">{{product?.name}}</h1>
                     <p>Tác giả: <a href="">{{product?.authors[0].name}}</a></p>
                     <p>Thể loại: <a href="">{{product?.categories.name}}</a></p>
@@ -67,7 +68,7 @@
             </div>
 
         </div>
-        <div>
+        <div class="p-[15px] md:p-[15px] lg:p-0">
             <p class="text-[22px] font-semibold mb-4 uppercase">Thông tin chi tiết:</p>
             <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                 <tbody class="divide-y divide-gray-200">
@@ -78,14 +79,14 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="p-[15px] md:p-[15px] lg:p-0">
             <h3 class="text-[22px] font-semibold mb-4 uppercase">Giới thiệu sản phẩm</h3>
             <div [innerHTML]="bypassSanitization(product?.description)"></div>
         </div>
 
-        <div class="mt-4" *ngIf="user">
+        <div class="mt-4 p-[15px] md:p-[15px] lg:p-0">
             <h1 class="text-[22px] font-semibold mb-4 uppercase">Đánh giá sản phẩm</h1>
-            <nz-comment *ngIf="comment" nzAuthor="{{user?.lastname}} {{user?.firstname}}">
+            <nz-comment *ngIf="comment " nzAuthor="{{user?.lastname}} {{user?.firstname}}">
                 <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]=""></nz-avatar>
                 <nz-comment-content>
                     <nz-rate class="text-sm" [(ngModel)]="rating" nzAllowHalf></nz-rate>
