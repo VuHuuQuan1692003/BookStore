@@ -53,7 +53,8 @@
             </a>
             <nz-dropdown-menu #menu="nzDropdownMenu">
                 <ul nz-menu nzSelectable *ngFor="let category of categories">
-                    <li nz-menu-item><a [routerLink]="['category',category.name]">{{category.name}}</a></li>
+                    <li nz-menu-item><a class="w-full" [routerLink]="['category',category.name]">{{category.name}}</a>
+                    </li>
 
                 </ul>
             </nz-dropdown-menu>
@@ -116,7 +117,7 @@
 
                         <ul class="mt-2 space-y-1 px-4">
                             <ul nz-menu *ngFor="let category of categories">
-                                <li nz-menu-item><a (click)="closeMenu()"
+                                <li nz-menu-item><a class="w-full" (click)="closeMenu()"
                                         [routerLink]="['category',category.name]">{{category.name}}</a></li>
 
                             </ul>
